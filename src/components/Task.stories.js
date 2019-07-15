@@ -21,9 +21,13 @@ const longTitle = `This task's name is absurdly large. In fact, I think if I kee
 
 storiesOf("Task", module)
   .addDecorator(withKnobs)
-  .add("default", () => {
-    return <Task task={object("task", { ...task })} {...actions} />;
-  })
+  .add(
+    "default",
+    () => {
+      return <Task task={object("task", { ...task })} {...actions} />;
+    },
+    { notes: "Default task state" }
+  )
   .add("pinned", () => (
     <Task task={{ ...task, state: "TASK_PINNED" }} {...actions} />
   ))
